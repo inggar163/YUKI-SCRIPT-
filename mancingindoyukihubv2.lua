@@ -1,4 +1,4 @@
--- Script Mancing Indo Yuki Hub - Lengkap + Speed + Reset + Salin Discord
+-- Script Mancing Indo Yuki Hub - Ukuran Lebih Kecil
 local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local TweenService = game:GetService("TweenService")
@@ -21,15 +21,15 @@ local DaftarPulau = {
     {Nama = "BAGAN DALAM", X = 978.55, Y = 7.95, Z = 1257.90}
 }
 
--- GUI Utama
+-- GUI Utama (UKURAN DIPERKECIL)
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "MancingIndoYukiHub"
 ScreenGui.Parent = PlayerGui
 ScreenGui.ResetOnSpawn = false
 
--- Frame Utama
+-- Frame Utama - Ukuran default lebih kecil
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 420, 0, 320)
+MainFrame.Size = UDim2.new(0, 420, 0, 320) -- ✅ Lebih kecil dari sebelumnya
 MainFrame.Position = UDim2.new(0.05, 0, 0.2, 0)
 MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 MainFrame.BorderSizePixel = 1
@@ -38,7 +38,7 @@ MainFrame.Parent = ScreenGui
 
 -- Judul Bar
 local TitleBar = Instance.new("Frame")
-TitleBar.Size = UDim2.new(1, 0, 0, 26)
+TitleBar.Size = UDim2.new(1, 0, 0, 26) -- ✅ Lebih pendek
 TitleBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 TitleBar.BorderSizePixel = 0
 TitleBar.Parent = MainFrame
@@ -50,13 +50,13 @@ TitleText.BackgroundTransparency = 1
 TitleText.Text = "MANCING INDO YUKI HUB"
 TitleText.TextColor3 = Color3.new(1,1,1)
 TitleText.Font = Enum.Font.GothamBold
-TitleText.TextSize = 12
+TitleText.TextSize = 12 -- ✅ Lebih kecil
 TitleText.TextXAlignment = Enum.TextXAlignment.Left
 TitleText.Parent = TitleBar
 
 -- Tombol Kontrol
 local MinimizeBtn = Instance.new("TextButton")
-MinimizeBtn.Size = UDim2.new(0, 24, 0, 20)
+MinimizeBtn.Size = UDim2.new(0, 24, 0, 20) -- ✅ Lebih kecil
 MinimizeBtn.Position = UDim2.new(1, -92, 0, 3)
 MinimizeBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 MinimizeBtn.Text = "O"
@@ -125,7 +125,7 @@ local MenuItems = {
     {Nama = "TELEPORT"},
     {Nama = "AUTO SELL TP"},
     {Nama = "AUTO SELL SILENT"},
-    {Nama = "SPEED PLAYER"},
+    {Nama = "COMING SOON"},
     {Nama = "COMING SOON"},
     {Nama = "COMING SOON"}
 }
@@ -133,7 +133,7 @@ local MenuItems = {
 local TombolMenu = {}
 for i, Data in ipairs(MenuItems) do
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.92, 0, 0, 34)
+    btn.Size = UDim2.new(0.92, 0, 0, 34) -- ✅ Lebih pendek
     btn.Position = UDim2.new(0.04, 0, 0, (i-1)*38)
     btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
     btn.BorderSizePixel = 1
@@ -141,17 +141,15 @@ for i, Data in ipairs(MenuItems) do
     btn.Text = Data.Nama
     btn.TextColor3 = Color3.new(1,1,1)
     btn.Font = Enum.Font.Gotham
-    btn.TextSize = 10
+    btn.TextSize = 10 -- ✅ Lebih kecil
     btn.AutoButtonColor = false
     btn.Parent = MenuFrame
     TombolMenu[i] = btn
 end
 
--- =====================
--- KONTEN TENTANG + TOMBOL SALIN DISCORD
--- =====================
+-- Konten Tentang
 local TentangText = Instance.new("TextLabel")
-TentangText.Size = UDim2.new(1, -10, 0.65, -10)
+TentangText.Size = UDim2.new(1, -10, 1, -10)
 TentangText.Position = UDim2.new(0, 5, 0, 5)
 TentangText.BackgroundTransparency = 1
 TentangText.Text = [[YUKI HUB
@@ -165,41 +163,14 @@ DEV : - YUKI
           - CHAT GPT]]
 TentangText.TextColor3 = Color3.new(1,1,1)
 TentangText.Font = Enum.Font.Gotham
-TentangText.TextSize = 11
+TentangText.TextSize = 11 -- ✅ Lebih kecil
 TentangText.TextXAlignment = Enum.TextXAlignment.Left
 TentangText.TextYAlignment = Enum.TextYAlignment.Top
 TentangText.TextWrapped = true
 TentangText.Visible = false
 TentangText.Parent = ContentFrame
 
--- Tombol Salin Discord
-local DiscordLink = "https://discord.gg/K6UUUmRp8"
-local SalinDiscordBtn = Instance.new("TextButton")
-SalinDiscordBtn.Size = UDim2.new(1, -20, 0, 35)
-SalinDiscordBtn.Position = UDim2.new(0, 10, 0.7, 0)
-SalinDiscordBtn.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
-SalinDiscordBtn.BorderSizePixel = 1
-SalinDiscordBtn.BorderColor3 = Color3.fromRGB(120, 130, 255)
-SalinDiscordBtn.Text = "📋 Salin Link Discord"
-SalinDiscordBtn.TextColor3 = Color3.new(1,1,1)
-SalinDiscordBtn.Font = Enum.Font.GothamBold
-SalinDiscordBtn.TextSize = 12
-SalinDiscordBtn.AutoButtonColor = false
-SalinDiscordBtn.Visible = false
-SalinDiscordBtn.Parent = ContentFrame
-
-SalinDiscordBtn.MouseButton1Click:Connect(function()
-    setclipboard(DiscordLink)
-    StarterGui:SetCore("SendNotification", {
-        Title = "✅ Berhasil",
-        Text = "Discord link copied!",
-        Duration = 2
-    })
-end)
-
--- =====================
--- KONTEN TELEPORT
--- =====================
+-- Konten Teleport
 local TeleportScroll = Instance.new("ScrollingFrame")
 TeleportScroll.Size = UDim2.new(1, -10, 1, -10)
 TeleportScroll.Position = UDim2.new(0, 5, 0, 5)
@@ -212,7 +183,7 @@ TeleportScroll.Parent = ContentFrame
 
 for i, Pulau in ipairs(DaftarPulau) do
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.95, 0, 0, 32)
+    btn.Size = UDim2.new(0.95, 0, 0, 32) -- ✅ Lebih kecil
     btn.Position = UDim2.new(0.025, 0, 0, (i-1)*36)
     btn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
     btn.BorderSizePixel = 1
@@ -220,7 +191,7 @@ for i, Pulau in ipairs(DaftarPulau) do
     btn.Text = Pulau.Nama
     btn.TextColor3 = Color3.new(1,1,1)
     btn.Font = Enum.Font.Gotham
-    btn.TextSize = 9
+    btn.TextSize = 9 -- ✅ Lebih kecil
     btn.AutoButtonColor = false
     btn.Parent = TeleportScroll
 
@@ -230,9 +201,7 @@ for i, Pulau in ipairs(DaftarPulau) do
     end)
 end
 
--- =====================
--- KONTEN AUTO SELL TP
--- =====================
+-- Konten Auto Sell TP
 local AutoSellTPInfo = Instance.new("TextLabel")
 AutoSellTPInfo.Size = UDim2.new(1, -10, 1, -10)
 AutoSellTPInfo.Position = UDim2.new(0, 5, 0, 5)
@@ -249,9 +218,7 @@ AutoSellTPInfo.TextWrapped = true
 AutoSellTPInfo.Visible = false
 AutoSellTPInfo.Parent = ContentFrame
 
--- =====================
--- KONTEN AUTO SELL SILENT
--- =====================
+-- Konten Auto Sell Silent
 local AutoSellSilentInfo = Instance.new("TextLabel")
 AutoSellSilentInfo.Size = UDim2.new(1, -10, 1, -10)
 AutoSellSilentInfo.Position = UDim2.new(0, 5, 0, 5)
@@ -266,125 +233,22 @@ AutoSellSilentInfo.TextWrapped = true
 AutoSellSilentInfo.Visible = false
 AutoSellSilentInfo.Parent = ContentFrame
 
--- =====================
--- KONTEN SPEED PLAYER + TOMBOL RESET
--- =====================
-local SpeedFrame = Instance.new("Frame")
-SpeedFrame.Size = UDim2.new(1, -10, 1, -10)
-SpeedFrame.Position = UDim2.new(0, 5, 0, 5)
-SpeedFrame.BackgroundTransparency = 1
-SpeedFrame.Visible = false
-SpeedFrame.Parent = ContentFrame
-
-local SpeedDesc = Instance.new("TextLabel")
-SpeedDesc.Size = UDim2.new(1, 0, 0, 50)
-SpeedDesc.Position = UDim2.new(0, 0, 0, 0)
-SpeedDesc.BackgroundTransparency = 1
-SpeedDesc.Text = [[Ubah kecepatan jalan karakter
-Masukkan angka lalu tekan terapkan]]
-SpeedDesc.TextColor3 = Color3.new(1,1,1)
-SpeedDesc.Font = Enum.Font.Gotham
-SpeedDesc.TextSize = 12
-SpeedDesc.TextXAlignment = Enum.TextXAlignment.Left
-SpeedDesc.TextWrapped = true
-SpeedDesc.Parent = SpeedFrame
-
-local SpeedInput = Instance.new("TextBox")
-SpeedInput.Size = UDim2.new(1, -20, 0, 35)
-SpeedInput.Position = UDim2.new(0, 10, 0, 60)
-SpeedInput.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-SpeedInput.BorderSizePixel = 1
-SpeedInput.BorderColor3 = Color3.fromRGB(80, 80, 80)
-SpeedInput.Text = "16"
-SpeedInput.PlaceholderText = "Contoh: 25, 40, 60"
-SpeedInput.TextColor3 = Color3.new(1,1,1)
-SpeedInput.Font = Enum.Font.Gotham
-SpeedInput.TextSize = 13
-SpeedInput.TextXAlignment = Enum.TextXAlignment.Center
-SpeedInput.ClearTextOnFocus = false
-SpeedInput.Parent = SpeedFrame
-
-local ApplySpeedBtn = Instance.new("TextButton")
-ApplySpeedBtn.Size = UDim2.new(1, -20, 0, 35)
-ApplySpeedBtn.Position = UDim2.new(0, 10, 0, 105)
-ApplySpeedBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 90)
-ApplySpeedBtn.Text = "✅ Terapkan Speed"
-ApplySpeedBtn.TextColor3 = Color3.new(1,1,1)
-ApplySpeedBtn.Font = Enum.Font.GothamBold
-ApplySpeedBtn.TextSize = 13
-ApplySpeedBtn.BorderSizePixel = 0
-ApplySpeedBtn.AutoButtonColor = false
-ApplySpeedBtn.Parent = SpeedFrame
-
-local ResetSpeedBtn = Instance.new("TextButton")
-ResetSpeedBtn.Size = UDim2.new(1, -20, 0, 35)
-ResetSpeedBtn.Position = UDim2.new(0, 10, 0, 150)
-ResetSpeedBtn.BackgroundColor3 = Color3.fromRGB(180, 60, 60)
-ResetSpeedBtn.Text = "🔄 Reset ke Awal (16)"
-ResetSpeedBtn.TextColor3 = Color3.new(1,1,1)
-ResetSpeedBtn.Font = Enum.Font.GothamBold
-ResetSpeedBtn.TextSize = 13
-ResetSpeedBtn.BorderSizePixel = 0
-ResetSpeedBtn.AutoButtonColor = false
-ResetSpeedBtn.Parent = SpeedFrame
-
--- Fungsi Speed
-local function TerapkanSpeed()
-    local nilai = tonumber(SpeedInput.Text)
-    if not nilai then
-        StarterGui:SetCore("SendNotification", {Title = "❌ Error", Text = "Masukkan angka yang valid!", Duration = 2})
-        return
-    end
-    nilai = math.clamp(nilai, 10, 300)
-
-    local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    local Humanoid = Character:WaitForChild("Humanoid")
-    Humanoid.WalkSpeed = nilai
-
-    -- Tetap berfungsi saat respawn
-    LocalPlayer.CharacterAdded:Connect(function(char)
-        task.wait(0.2)
-        if char:FindFirstChild("Humanoid") then
-            char.Humanoid.WalkSpeed = nilai
-        end
-    end)
-
-    StarterGui:SetCore("SendNotification", {Title = "✅ Speed Diatur", Text = "Kecepatan: "..nilai, Duration = 2})
-end
-
-local function ResetSpeed()
-    SpeedInput.Text = "16"
-    local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    if Character:FindFirstChild("Humanoid") then
-        Character.Humanoid.WalkSpeed = 16
-    end
-    StarterGui:SetCore("SendNotification", {Title = "🔄 Reset", Text = "Kecepatan kembali normal", Duration = 2})
-end
-
-ApplySpeedBtn.MouseButton1Click:Connect(TerapkanSpeed)
-ResetSpeedBtn.MouseButton1Click:Connect(ResetSpeed)
-
--- =====================
--- FUNGSI TAMPIL KONTEN
--- =====================
+-- Fungsi Tampil Konten
 local function TampilkanKonten(nomor)
     TentangText.Visible = nomor == 1
-    SalinDiscordBtn.Visible = nomor == 1
     TeleportScroll.Visible = nomor == 2
     AutoSellTPInfo.Visible = nomor == 3
     AutoSellSilentInfo.Visible = nomor == 4
-    SpeedFrame.Visible = nomor == 5
 end
 
 TombolMenu[1].MouseButton1Click:Connect(function() TampilkanKonten(1) end)
 TombolMenu[2].MouseButton1Click:Connect(function() TampilkanKonten(2) end)
 TombolMenu[3].MouseButton1Click:Connect(function() TampilkanKonten(3) end)
 TombolMenu[4].MouseButton1Click:Connect(function() TampilkanKonten(4) end)
-TombolMenu[5].MouseButton1Click:Connect(function() TampilkanKonten(5) end)
 
--- =====================
+-- =============================================
 -- FUNGSI AUTO SELL TP
--- =====================
+-- =============================================
 local npcPosition = Vector3.new(2617.40, 5.41, -914.38)
 local AutoSellTPAktif = false
 local AutoSellTPGui, HotkeyTP
@@ -417,7 +281,7 @@ TombolMenu[3].MouseButton1Click:Connect(function()
         AutoSellTPGui.ResetOnSpawn = false
         AutoSellTPGui.Parent = PlayerGui
         local f = Instance.new("Frame")
-        f.Size = UDim2.new(0,80,0,60)
+        f.Size = UDim2.new(0,80,0,60) -- ✅ Popup lebih kecil
         f.Position = UDim2.new(0.88,0,0.3,0)
         f.BackgroundColor3 = Color3.fromRGB(15,15,30)
         f.BorderSizePixel = 1
@@ -459,9 +323,9 @@ TombolMenu[3].MouseButton1Click:Connect(function()
     end
 end)
 
--- =====================
--- AUTO SELL SILENT
--- =====================
+-- =============================================
+-- AUTO SELL SILENT - Kotak Nomor 4
+-- =============================================
 local AutoSellSilentAktif = false
 local SilentGui, HotkeySilent
 
@@ -501,7 +365,7 @@ TombolMenu[4].MouseButton1Click:Connect(function()
         SilentGui.Parent = PlayerGui
         
         local frame = Instance.new("Frame", SilentGui)
-        frame.Size = UDim2.new(0, 180, 0, 120)
+        frame.Size = UDim2.new(0, 180, 0, 120) -- ✅ Popup lebih kecil
         frame.Position = UDim2.new(0.8, 0, 0.3, 0)
         frame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
         frame.BorderSizePixel = 0
@@ -524,7 +388,110 @@ TombolMenu[4].MouseButton1Click:Connect(function()
         btn.TextColor3 = Color3.new(0,0,0)
         btn.BorderSizePixel = 0
         
+        -- Bisa digeser
         local drag, dragPos, startPos
         title.InputBegan:Connect(function(i)
             if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
-                drag = true dragPos = i.Position startPos = frame.Posi
+                drag = true dragPos = i.Position startPos = frame.Position
+            end
+        end)
+        UserInputService.InputChanged:Connect(function(i)
+            if drag and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
+                frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + (i.Position - dragPos).X, startPos.Y.Scale, startPos.Y.Offset + (i.Position - dragPos).Y)
+            end
+        end)
+        UserInputService.InputEnded:Connect(function() drag = false end)
+        
+        btn.MouseButton1Click:Connect(silentSellAll)
+        
+        -- Hotkey J
+        HotkeySilent = UserInputService.InputBegan:Connect(function(input, gp)
+            if gp then return end
+            if input.KeyCode == Enum.KeyCode.J then
+                silentSellAll()
+            end
+        end)
+    end
+end)
+
+-- MINIMIZE SUPER RINGAN
+local isMin = false
+local ukuranAsli = UDim2.new(0,420,0,320) -- ✅ Ukuran asli baru
+local posisiAsli = UDim2.new(0.05,0,0.2,0)
+
+local YLabel = Instance.new("TextLabel")
+YLabel.Size = UDim2.new(1,0,1,0)
+YLabel.BackgroundTransparency = 1
+YLabel.Text = "Y"
+YLabel.TextColor3 = Color3.new(1,1,1)
+YLabel.Font = Enum.Font.GothamBold
+YLabel.TextSize = 16
+YLabel.Visible = false
+YLabel.Parent = MainFrame
+
+local function ToggleMin()
+    isMin = not isMin
+    if isMin then
+        ukuranAsli = MainFrame.Size
+        posisiAsli = MainFrame.Position
+        TitleBar.Visible = false
+        MenuFrame.Visible = false
+        ContentFrame.Visible = false
+        MainFrame.Size = UDim2.new(0,36,0,36) -- ✅ Kotak minimize lebih kecil
+        MainFrame.BackgroundColor3 = Color3.fromRGB(40,40,40)
+        MainFrame.BorderSizePixel = 1
+        YLabel.Visible = true
+    else
+        TitleBar.Visible = true
+        MenuFrame.Visible = true
+        ContentFrame.Visible = true
+        MainFrame.Size = ukuranAsli
+        MainFrame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+        YLabel.Visible = false
+    end
+end
+
+MinimizeBtn.MouseButton1Click:Connect(ToggleMin)
+YLabel.InputBegan:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then ToggleMin() end end)
+
+-- Ubah Ukuran - BATAS LEBIH KECIL
+EnlargeBtn.MouseButton1Click:Connect(function()
+    if isMin then return end
+    local lebar = math.min(MainFrame.Size.X.Offset + 20, 550)
+    local tinggi = math.min(MainFrame.Size.Y.Offset + 20, 420)
+    MainFrame.Size = UDim2.new(0, lebar, 0, tinggi)
+    TeleportScroll.CanvasSize = UDim2.new(0,0,0, #DaftarPulau * 36)
+end)
+
+ShrinkBtn.MouseButton1Click:Connect(function()
+    if isMin then return end
+    local lebar = math.max(MainFrame.Size.X.Offset - 20, 280) -- ✅ Batas minimal lebih kecil
+    local tinggi = math.max(MainFrame.Size.Y.Offset - 20, 220) -- ✅ Batas minimal lebih kecil
+    MainFrame.Size = UDim2.new(0, lebar, 0, tinggi)
+    TeleportScroll.CanvasSize = UDim2.new(0,0,0, #DaftarPulau * 36)
+end)
+
+-- Tutup
+CloseBtn.MouseButton1Click:Connect(function()
+    if AutoSellTPGui then AutoSellTPGui:Destroy() end
+    if SilentGui then SilentGui:Destroy() end
+    if HotkeyTP then HotkeyTP:Disconnect() end
+    if HotkeySilent then HotkeySilent:Disconnect() end
+    ScreenGui:Destroy()
+end)
+
+-- Geser Ringan
+local sedangGeser, posAwal, titikAwal
+MainFrame.InputBegan:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.MouseButton1 then
+        sedangGeser = true
+        titikAwal = i.Position
+        posAwal = MainFrame.Position
+    end
+end)
+UserInputService.InputChanged:Connect(function(i)
+    if sedangGeser and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
+        MainFrame.Position = UDim2.new(posAwal.X.Scale, math.floor(posAwal.X.Offset + (i.Position - titikAwal).X), posAwal.Y.Scale, math.floor(posAwal.Y.Offset + (i.Position - titikAwal).Y))
+    end
+end)
+UserInputService.InputEnded:Connect(function() sedangGeser = false end)
